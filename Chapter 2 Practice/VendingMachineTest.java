@@ -50,7 +50,7 @@ public class VendingMachineTest
     {
         VendingMachine vending = new VendingMachine(10);
         vending.fillUp(10);
-        assertEquals(20, vending.getCanCount(), 1e-6 );
+        assertEquals(20, vending.getCanCount());
         
         
     }
@@ -60,7 +60,7 @@ public class VendingMachineTest
     {
         VendingMachine vending = new VendingMachine(10);
         vending.insertToken(5);
-        assertEquals(5, vending.getCanCount(), 1e-6 );
+        assertEquals(5, vending.getCanCount());
     }
     
     
