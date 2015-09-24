@@ -51,4 +51,22 @@ public class Target
         g2.setColor(Color.BLACK);
         g2.fill(blackCircle);
     }
+    
+    public void drawCyan(Graphics2D g2, int diameter)
+    {
+        Ellipse2D.Double cyanCircle = new Ellipse2D.Double(xLeft + 50, yTop + 50, diameter, diameter);
+        g2.draw(cyanCircle);
+        g2.setColor(Color.CYAN);
+        g2.fill(cyanCircle);
+        
+    }
+    
+    public void drawBlue (Graphics2D g2, int diameter)
+    {
+        Ellipse2D.Double blueCircle = new Ellipse2D.Double(xLeft + 50, yTop + 50, diameter, diameter);
+        g2.draw(blueCircle);
+        g2.setColor(Color.BLUE);
+        g2.fill(blueCircle);
+        
+    }
 }
