@@ -15,7 +15,13 @@ public class CityscapeComponent extends JComponent
     // ...
     
     
-    
+    boolean ifOutside = false;
+    int windowCounter = 0;
+    while (ifOutside = false)
+    {
+        Rectangle windowColumn1 = new Rectangle (xLeft , yTop + 40(windowCounter), 30, 30);
+        windowCounter =  windowCounter+ 1;
+    }
     // define the CityscapeComponent contructor and intiailize all instance variables
     // ...
     
