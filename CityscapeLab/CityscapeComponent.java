@@ -6,21 +6,25 @@ import javax.swing.JComponent;
  * Class that creates instances of the classes that comprise the cityscape and delegates drawing the
  *  cityscape to these object.
  * 
- * @author @gcschmit
- * @version 18 July 2014
+ * @ Connor Chong @gcschmit
+ * @version 10-5-15
  */
 public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
     // ...
     
-    
-    boolean ifOutside = false;
-    int windowCounter = 0;
-    while (ifOutside = false)
+    public void paintComponent(Graphics g)
     {
-        Rectangle windowColumn1 = new Rectangle (xLeft , yTop + 40(windowCounter), 30, 30);
-        windowCounter =  windowCounter+ 1;
+        Graphics2D g2 = (Graphics2D) g;
+        
+        Skyscraper skyscraper1 = new Skyscraper(30, 30, 10);
+        skyscraper1.draw(g2);
+        
+        Skyscraper skyscraper2 = new Skyscraper (250, 30, 10);
+        skyscraper2.draw(g2);
+    
+    
     }
     // define the CityscapeComponent contructor and intiailize all instance variables
     // ...
@@ -31,29 +35,29 @@ public class CityscapeComponent extends JComponent
      * It does not need to be invoked explicitly.
      *
      */
-    public void paintComponent(Graphics g)
-    {
-        Graphics2D g2 = (Graphics2D) g;
+    //public void paintComponent(Graphics g)
+    //{
+   //     Graphics2D g2 = (Graphics2D) g;
         
         // invoke the draw method on each object in your Cityscape
         // ...
         
         
-    }
+  // }
     
     /**
      * Animate the cityscape by updating the objects such that they appear to be animated when they are next drawn.
      *
      */
-    public void nextFrame()
-    {
+   // public void nextFrame()
+   // {
         // update the objects in the cityscape so they are animated
         // ...
         
         
         
         // request that the Java Runtime repaints this component by invoking its paintComponent method
-        repaint();
-    }
+   //     repaint();
+   // }
 
 }
