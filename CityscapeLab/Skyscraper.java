@@ -36,17 +36,23 @@ public class Skyscraper
      * Draws the outline of the whole building
      * @param   g2    graphics context
      */
-    public void draw (Graphics2D g2)
+    
+    public Color randomColor()
+    {
+        Random randomNumber = new Random();
+        int red = randomNumber.nextInt(256);
+        int green = randomNumber.nextInt(256);
+        int blue = randomNumber.nextInt(256);
+        Color newColor = new Color(red,green,blue);
+        return newColor;
+    }
+    
+    public void drawSkyscraper (Graphics2D g2)
     {
         // Creates the outline of the skyscraper with the xLeft and yTop starting position. 
         Rectangle outline = new Rectangle(xLeft, yTop + 10, 170, 50 + floors*50); // height is dependent on floors
         
-        Random randomColor = new Random();
-        int red = randomColor.nextInt(256);
-        int green = randomColor.nextInt(256);
-        int blue = randomColor.nextInt(256);
-        Color newColor = new Color(red,green,blue);
-        g2.setColor(newColor);  // color random
+        g2.setColor(Color.BLACK);  // color random
         g2.fill(outline);          // fill with black
         
                 
@@ -60,7 +66,7 @@ public class Skyscraper
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(newColor);  // set color to yellow
+            g2.setColor(randomColor());  // set color to yellow
             g2.fill(windowColumn1);     // fill color to yellow
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
@@ -75,7 +81,7 @@ public class Skyscraper
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(newColor);  // set color to blue
+            g2.setColor(randomColor());  // set color to blue
             g2.fill(windowColumn2);     // fill color to blue
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
@@ -91,7 +97,7 @@ public class Skyscraper
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(Color.GREEN);  // set color to blue
+            g2.setColor(randomColor());  // set color to blue
             g2.fill(windowColumn3);     // fill color to blue
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
@@ -106,7 +112,7 @@ public class Skyscraper
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(Color.RED);  // set color to blue
+            g2.setColor(randomColor());  // set color to blue
             g2.fill(windowColumn4);     // fill color to blue
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows

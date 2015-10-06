@@ -13,18 +13,36 @@ public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
     // ...
+    private int floors;
+    private boolean ifDay;
+    public CityscapeComponent(int numberOfFloors, boolean day)
+    {
+        this.floors = numberOfFloors;
+        this.ifDay = day;
+    }    
     
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
         
-        Skyscraper skyscraper1 = new Skyscraper(30, 30, 10);
-        skyscraper1.draw(g2);
+        if (ifDay = true)
+        {
+            Sun sun = new Sun();
+            sun.drawSun(g2);
+        }
+        else 
+        {
+            Moon moon = new Moon();
+            moon.drawMoon(g2);
+        }    
         
-        Skyscraper skyscraper2 = new Skyscraper (250, 30, 10);
-        skyscraper2.draw(g2);
-    
-    
+        Skyscraper skyscraper1 = new Skyscraper(30, 30, floors);
+        skyscraper1.drawSkyscraper(g2);
+        
+        Skyscraper skyscraper2 = new Skyscraper (250, 30, floors);
+        skyscraper2.drawSkyscraper(g2);
+        
+        
     }
     // define the CityscapeComponent contructor and intiailize all instance variables
     // ...
