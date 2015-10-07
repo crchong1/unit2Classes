@@ -4,8 +4,8 @@ import java.util.Scanner;
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
  * 
- * @author @gcschmit
- * @version 18 July 2014
+ * @Connor Chong @gcschmit
+ * @version 10-7-2015
  */
 public class CityscapeViewer
 {
@@ -21,7 +21,7 @@ public class CityscapeViewer
         // create and configure the frame (window) for the program
         JFrame frame = new JFrame();
         
-        frame.setSize(800 /* x */, 600 /* y */);
+        frame.setSize(900 /* x */, 700 /* y */);
         frame.setTitle("Cityscape");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
