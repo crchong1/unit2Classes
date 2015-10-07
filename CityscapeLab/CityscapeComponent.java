@@ -13,29 +13,40 @@ public class CityscapeComponent extends JComponent
 {
 
     private int floors;
-    private boolean ifDay;
-    public CityscapeComponent(int numberOfFloors, boolean day)
+    private String ifDay;
+    
+    public CityscapeComponent(int numberOfFloors, String day)
     {
+
+
         this.floors = numberOfFloors;
         this.ifDay = day;
+        if (ifDay.equals("day"))                  // if ifDay = day
+        {
+            Sun sun = new Sun();                  // Create sun object from Sun class            
+        }
+        else                                      // else ifDay is not day
+        {
+            Moon moon = new Moon();               // Create moon object from moon class
+        } 
+       
     }    
     
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
         
-        if (ifDay = true)                         // if ifDay = true
+        if (ifDay.equals("day"))                         // if ifDay = true
         {
             Backdrop day = new Backdrop(ifDay);   // Create day object from Backdrop class, passing boolean ifDay to Backdrop
             day.drawBackdrop(g2);                 // Draws the sky blue backdrop 
-            Sun sun = new Sun();                  // Create sun object from Sun class
             sun.drawSun(g2);                      // Draws the sun object
+            
         }
         else                                      // else ifDay is not true
         {
             Backdrop night = new Backdrop(ifDay); // Create night object from Backdrop class, passing boolean ifDay to Backdrop
             night.drawBackdrop(g2);               // Draws the black backdrop 
-            Moon moon = new Moon();               // Create moon object from moon class
             moon.drawMoon(g2);                    // Draws the moon object
         }    
         

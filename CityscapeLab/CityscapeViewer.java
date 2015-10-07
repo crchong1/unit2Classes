@@ -29,8 +29,8 @@ public class CityscapeViewer
         System.out.println("How many floors do you want your buildings to be? ");
         int promptFloors = prompt.nextInt();
 
-        System.out.println("Is it day or night? If day, then put true. If night, then put false. ");
-        boolean ifDay = prompt.nextBoolean();
+        System.out.println("Is it day or night? ");
+        String ifDay = prompt.next(); 
                
         
         

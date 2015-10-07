@@ -10,6 +10,16 @@ import java.awt.Color;
  */
 public class Sun
 {
+    /** boolean ifDay where true is day and false is night */
+    private String ifDay;
+
+    /**
+     * Default constructor for objects of class Backdrop
+     */
+    public Sun ()
+    {
+      
+    }
     /**
      * Draws the sun as a circle 
      * @param   g2    graphics context
