@@ -13,40 +13,54 @@ import java.util.Random;
  */
 public class Skyscraper
 {
-    /** description of instance variable x (add comment for each instance variable) */
+    /** instanceVariable that specifies the x position */
     private int xLeft;
+    
+    /** instanceVariable that specifies the y position */
     private int yTop;
+    
+    /** instanceVariable that specifies the number of floors in an integer number of floors */
     private int floors;
 
     /**
-     * Constructs a car with a given top left corner
+     * Constructs a skyscraper with a given top left corner
      * @param x the x coordinate of the top left corner
      * @param y the y coordinate of the top left corner
+     * @param numberOfFloors the number of floors of the skyscraper
      */
     public Skyscraper(int x, int y, int numberOfFloors)
     {
         xLeft = x;
         yTop = y;
-        floors = numberOfFloors - 2; 
+        floors = numberOfFloors; 
     }
     
-      
     
     /**
-     * Draws the outline of the whole building
-     * @param   g2    graphics context
+     * This method generates a random color from the random number generator
+     * @post       gives a Color object that is a random color
      */
-    public void draw (Graphics2D g2)
+    public Color randomColor()
+    {
+        Random randomNumber = new Random();        // Create randumNumber object from Random class
+        int red = randomNumber.nextInt(256);       // Declare int red that is a random int up to 256
+        int green = randomNumber.nextInt(256);     // Declare int green that is a random int up to 256
+        int blue = randomNumber.nextInt(256);      // Declare int blue that is a random int up to 256
+        Color newColor = new Color(red,green,blue);// Create newColor object that is a random combination of red, green and blue 
+        return newColor;                           // returns newColor
+    }
+    
+    /**
+     * Draws the outline of the whole building and also creates windows. The number of windows corresponds with the number of floors
+     * @param   g2    graphics context
+     * @post       creates a black rectangle with random color windows
+     */
+    public void drawSkyscraper (Graphics2D g2)
     {
         // Creates the outline of the skyscraper with the xLeft and yTop starting position. 
-        Rectangle outline = new Rectangle(xLeft, yTop + 10, 170, 50 + floors*50); // height is dependent on floors
+        Rectangle outline = new Rectangle(xLeft, yTop, 170, 50 + floors*50); // height is dependent on floors
         
-        Random randomColor = new Random();
-        int red = randomColor.nextInt(256);
-        int green = randomColor.nextInt(256);
-        int blue = randomColor.nextInt(256);
-        Color newColor = new Color(red,green,blue);
-        g2.setColor(newColor);  // color random
+        g2.setColor(Color.BLACK);  // color black
         g2.fill(outline);          // fill with black
         
                 
@@ -55,13 +69,13 @@ public class Skyscraper
         do 
         {
             Rectangle windowColumn1 = new Rectangle (xLeft + 10 , yTop + 40*(windowCounter), 30, 30); // change starting position of each window
-            if ((yTop + 40*windowCounter) >= (10 + floors*50)) // if the starting position of the window is outside of the total height of outline
+            if ((yTop + 40*windowCounter) >= (30+floors*50))                                        // if the starting position of the window is outside of the total height of outline
             {
-                ifOutside = true;    // set ifOutside to true to escape while loop;
+                ifOutside = true; // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(newColor);  // set color to yellow
-            g2.fill(windowColumn1);     // fill color to yellow
+            g2.setColor(randomColor());            // call randomColor() method to generate random color
+            g2.fill(windowColumn1);                // fill window
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
   
@@ -70,13 +84,13 @@ public class Skyscraper
         do 
         {
             Rectangle windowColumn2 = new Rectangle (xLeft + 50 , yTop + 40*(windowCounter), 30, 30); // change starting position of each window
-            if ((yTop + 40*windowCounter) >= (10 + floors*50)) // if the starting position of the window is outside of the total height of outline
+            if ((yTop + 40*windowCounter) >= (30+floors*50))                                        // if the starting position of the window is outside of the total height of outline
             {
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(newColor);  // set color to blue
-            g2.fill(windowColumn2);     // fill color to blue
+            g2.setColor(randomColor());            // call randomColor() method to generate random color
+            g2.fill(windowColumn2);                // fill window
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
         
@@ -86,13 +100,13 @@ public class Skyscraper
         do 
         {
             Rectangle windowColumn3 = new Rectangle (xLeft + 90 , yTop + 40*(windowCounter), 30, 30); // change starting position of each window
-            if ((yTop + 40*windowCounter) >= (10 + floors*50)) // if the starting position of the window is outside of the total height of outline
+            if ((yTop + 40*windowCounter) >= (30+floors*50))                                        // if the starting position of the window is outside of the total height of outline
             {
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(Color.GREEN);  // set color to blue
-            g2.fill(windowColumn3);     // fill color to blue
+            g2.setColor(randomColor());            // call randomColor() method to generate random color
+            g2.fill(windowColumn3);                // fill window
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
         
@@ -101,13 +115,13 @@ public class Skyscraper
         do 
         {
             Rectangle windowColumn4 = new Rectangle (xLeft + 130 , yTop + 40*(windowCounter), 30, 30); // change starting position of each window
-            if ((yTop + 40*windowCounter) >= (10 + floors*50)) // if the starting position of the window is outside of the total height of outline
+            if ((yTop + 40*windowCounter) >= (30 + floors*50)) // if the starting position of the window is outside of the total height of outline
             {
                 ifOutside = true;    // set ifOutside to true to escape while loop;
             }
             windowCounter =  windowCounter + 1;    // increment windowCounter by 1 each for each instance of the while loop
-            g2.setColor(Color.RED);  // set color to blue
-            g2.fill(windowColumn4);     // fill color to blue
+            g2.setColor(randomColor());            // call randomColor() method to generate random color
+            g2.fill(windowColumn4);                // fill window
                 
         } while (ifOutside == false); // while loop to keep creating rectangular windows
     }
